@@ -83,7 +83,7 @@ php artisan make:controller Api\StudentController
 Lalu buka file ``create_students_table`` tadi ke pada folder ``database > migrations > (cari file yang mengandung create_students_table)`` 
 
 Lalu ganti ``public function up`` dengan berikut 
-```
+```php
 public function up(): void
 {
     Schema::create('students', function (Blueprint $table) {
