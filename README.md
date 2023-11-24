@@ -1,66 +1,329 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel RESTful API
+Repository ini dibuat untuk mengimplementasikan framework ``laravel`` dengan membuat API sederhana.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Daftar Isi
+- [Setup Clone](#setup-clone)
+- [Setup From Zero](#setup-from-zero)
 
-## About Laravel
+### Setup Clone
+Pertama lakukan perintah berikut untuk melakukan cloning di github 
+```
+git clone https://github.com/Caknoooo/ams-laravel-restful-api
+```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Jangan lupa untuk menjalankan perintah berikut untuk mendownload dependencies-dependencies yang dibutuhkan
+```
+composer install
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Setelah itu lakukan beberapa konfigurasi sebagai berikut
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+cp .env.example .env
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+SETUP SESUAI DENGAN DATABASE MYSQL pada file .env
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel-api
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Lalu nyalakan ``XAMPP`` dan jalankan berikut 
 
-## Laravel Sponsors
+![image](https://github.com/Caknoooo/ams-laravel-restful-api/assets/92671053/0098acc5-0603-4b62-956d-dcb3d0570291)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
+Setelah itu jalankan perintah berikut 
+```
+php artisan migrate
+php artisan key:generate
+php artisan config:clear
+php artisan config:cache
+php artisan serve
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Hasilnya adalah sebagai berikut 
 
-## Contributing
+![image](https://github.com/Caknoooo/ams-laravel-restful-api/assets/92671053/c2574f9b-7d00-4476-9ced-3cdb32f8642b)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Berikut merupakan postman yang bisa dipakai 
 
-## Code of Conduct
+https://documenter.getpostman.com/view/29665461/2s9YeD6s4M
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Setup From Zero
 
-## Security Vulnerabilities
+Untuk memulai dari awal anda perlu untuk menjalankan perintah berikut 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```
+composer create-project laravel/laravel laravel-api
+```
 
-## License
+Setelah itu jangan lupa untuk membuka directory ``laravel-api`` di ``text editor``
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Setelah itu setup database nya di file ``.env`` dan menjalankan ``XAMPP``
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel-api
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Lalu jalankan perintah berikut di terminal 
+```
+php artisan make:migration create_students_table
+php artisan make:model Student
+php artisan make:controller Api\StudentController
+```
+
+Lalu buka file ``create_students_table`` tadi ke pada folder ``database > migrations > (cari file yang mengandung create_students_table)`` 
+
+Lalu ganti ``public function up`` dengan berikut 
+```
+public function up(): void
+{
+    Schema::create('students', function (Blueprint $table) {
+        $table->id();
+        $table->string('name');
+        $table->string('course');
+        $table->string('email');
+        $table->string('phone');
+        $table->timestamps();
+    });
+}
+```
+
+Setelah itu buka file ``Student.php`` yang dibuat ketika menjalakan ``php artisan make:model Student`` tadi. Pada folder ``app > Models > Student.php```
+
+Lalu ganti sebagai berikut 
+```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Student extends Model
+{
+    use HasFactory;
+
+    protected $table = "students";
+
+    protected $fillable = [
+        'name',
+        'course',
+        'email',
+        'phone',
+    ];
+}
+```
+
+Setelah itu buka file controller yang telah dibuat sebelumnya pada folder ``app > Http > Controllers > Api > StudentController``
+
+Lalu ganti sebagai berikut 
+```php
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
+use App\Models\Student;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
+class StudentController extends Controller
+{
+    public function index() {
+        $student = Student::all();
+        if ($student->count() > 0) {
+            return response()->json([
+                'success' => true,
+                'message' => 'List Data Student',
+                'data' => $student
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Data Student Not Found',
+                'data' => null
+            ], 404);
+        }
+    }
+
+    public function store(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:191',
+            'course' => 'required|string|max:191',
+            'email' => 'required|string|max:191',
+            'phone' => 'required|digits_between:10,12',
+        ]);
+
+        if($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $validator->messages(),
+                'data' => $validator->errors()
+            ], 400);
+        } else {
+            $student = Student::create([
+                'name' => $request->input('name'),
+                'course' => $request->input('course'),
+                'email' => $request->input('email'),
+                'phone' => $request->input('phone'),
+            ]);
+
+            if ($student) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Create Student Success',
+                    'data' => $student
+                ], 201);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Create Student Failed',
+                    'data' => null
+                ], 400);
+            }
+        }
+    }
+
+    public function show($id) {
+        $student = Student::find($id);
+        if ($student) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Detail Data Student',
+                'data' => $student
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Data Student Not Found',
+                'data' => null
+            ], 404);
+        }
+    }
+
+    public function update(Request $request, $id) {
+        $student = Student::find($id);
+        if ($student) {
+            $validator = Validator::make($request->all(), [
+                'name' => 'required|string|max:191',
+                'course' => 'required|string|max:191',
+                'email' => 'required|string|max:191',   
+                'phone' => 'required|digits_between:10,12',
+            ]);
+
+            if($validator->fails()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $validator->messages(),
+                    'data' => $validator->errors()
+                ], 400);
+            } else {
+                $student->update([
+                    'name' => $request->input('name'),
+                    'course' => $request->input('course'),
+                    'email' => $request->input('email'),
+                    'phone' => $request->input('phone'),
+                ]);
+
+                if ($student) {
+                    return response()->json([
+                        'success' => true,
+                        'message' => 'Update Student Success',
+                        'data' => $student
+                    ], 201);
+                } else {
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Update Student Failed',
+                        'data' => null
+                    ], 400);
+                }
+            }
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Data Student Not Found',
+                'data' => null
+            ], 404);
+        }
+    }
+
+    public function destroy($id) {
+        $student = Student::find($id);
+        if ($student) {
+            $student->delete();
+            return response()->json([
+                'success' => true,
+                'message' => 'Delete Student Success',
+                'data' => $student
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Delete Student Failed',
+                'data' => null
+            ], 400);
+        }
+    }
+}
+```
+
+Terkhir buka file ``api.php`` yang ada pada folder ``routes``. Lalu ganti kode Berikut
+
+```php
+<?php
+
+use App\Http\Controllers\Api\StudentController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "api" middleware group. Make something great!
+|
+*/
+
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+
+Route::get('students', [StudentController::class, 'index']);
+Route::post('students', [StudentController::class, 'store']);
+Route::get('students/{id}', [StudentController::class, 'show']);
+Route::put('students/{id}', [StudentController::class, 'update']);
+Route::delete('students/{id}', [StudentController::class, 'destroy']);
+```
+
+Setelah itu jalankan perintah berikut 
+```
+php artisan migrate
+php artisan key:generate
+php artisan config:clear
+php artisan config:cache
+php artisan serve
+```
+
+Hasilnya adalah sebagai berikut 
+
+![image](https://github.com/Caknoooo/ams-laravel-restful-api/assets/92671053/c2574f9b-7d00-4476-9ced-3cdb32f8642b)
+
+Berikut merupakan postman yang bisa dipakai 
+
+https://documenter.getpostman.com/view/29665461/2s9YeD6s4M
