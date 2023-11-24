@@ -97,7 +97,7 @@ public function up(): void
 }
 ```
 
-Setelah itu buka file ``Student.php`` yang dibuat ketika menjalakan ``php artisan make:model Student`` tadi. Pada folder ``app > Models > Student.php```
+Setelah itu buka file ``Student.php`` yang dibuat ketika menjalakan ``php artisan make:model Student`` tadi. Pada folder ``app > Models > Student.php``
 
 Lalu ganti sebagai berikut 
 ```php
