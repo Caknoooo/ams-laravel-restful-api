@@ -18,8 +18,6 @@ composer install
 
 Setelah itu lakukan beberapa konfigurasi sebagai berikut
 ```
-
-
 cp .env.example .env
 
 SETUP SESUAI DENGAN DATABASE MYSQL pada file .env
